@@ -21,6 +21,6 @@ def remove_outlier_ages(df: pd.DataFrame, max_threshold: int) -> pd.DataFrame:
 
 def remove_outlier_duration(df: pd.DataFrame, max_threshold: int, min_threshold: int = 0) -> pd.DataFrame:
 
-    dataf = df.loc[(df['Duration'] <= max_threshold) & (df['Duration >= 0']), :].reset_index(drop=True)
+    dataf = df.loc[(df['Duration'] <= max_threshold) & (df['Duration'] >= 0), :].reset_index(drop=True)
 
     return dataf

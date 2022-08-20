@@ -20,7 +20,7 @@ fun e2e machine learning project to modeling propensity to claim
 <img src="./assets/freq_duration_banded_one_way.png">
 
 
-- destination has high cardinality 
+- destination has high cardinality ~top 20 countries capture ~90% of all data points and claims
 
 ## Feature engineering
 - one hot encoding for categorical
