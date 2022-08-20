@@ -19,5 +19,8 @@ fun e2e machine learning project to modeling propensity to claim
 - duration 365 has a high frequency compared to non-annual policies
 <img src="./assets/freq_duration_banded_one_way.png">
 
+
+- destination has high cardinality 
+
 ## Feature engineering
 - one hot encoding for categorical

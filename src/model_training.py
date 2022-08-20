@@ -7,11 +7,16 @@ from modules.feature_transformer import one_hot_encode
 from modules.data_wrangler import remove_non_positive_premiums, remove_outlier_ages, remove_outlier_duration
 
 def main():
-    
+
+    # Read in data
     df = read_data()
+
+    # Process and clean data
     df = remove_outlier_ages(df, 100)
     df = remove_outlier_duration(df, 547)
     df = remove_non_positive_premiums(df)
+
+    # Feature selection and engineering
     df = df[[
         'Agency', 'Agency Type', 'Distribution Channel', 'Product Name', 'Destination', # 'Gender',
         'Duration', 'Age', 'Claim'
@@ -27,8 +32,10 @@ def main():
     x = df_encoded.drop('Claim', axis=1)
     y = df_encoded['Claim']
 
+    # Train test split
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=123)
 
+    # Model training
     model = lgb.LGBMClassifier(learning_rate=0.05, max_depth=-5, random_state=123)
     model.fit(x_train, y_train, eval_set=[(x_test, y_test), (x_train, y_train)], eval_metric='logloss')
 
