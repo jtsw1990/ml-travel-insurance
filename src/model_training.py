@@ -4,10 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from modules.data_reader import read_data
 from modules.feature_transformer import one_hot_encode
+from modules.data_wrangler import remove_non_positive_premiums, remove_outlier_ages, remove_outlier_duration
 
 def main():
     
     df = read_data()
+    df = remove_outlier_ages(df, 100)
+    df = remove_outlier_duration(df, 547)
+    df = remove_non_positive_premiums(df)
     df = df[[
         'Agency', 'Agency Type', 'Distribution Channel', 'Product Name', 'Destination', # 'Gender',
         'Duration', 'Age', 'Claim'
@@ -22,6 +26,7 @@ def main():
     
     x = df_encoded.drop('Claim', axis=1)
     y = df_encoded['Claim']
+
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=123)
 
     model = lgb.LGBMClassifier(learning_rate=0.05, max_depth=-5, random_state=123)
