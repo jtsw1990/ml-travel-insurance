@@ -13,12 +13,11 @@ fun e2e machine learning project to modeling propensity to claim
 
 - Age seems to have a slight downward effect on claim frequency
 - Strange peak of exposure at 36 years
-[age_one_way](./assets/freq_age_one_way.png)
-
+<img src="./assets/freq_age_one_way.png">
 
 - duration has a few unrealistic values upwards of 10 years, to either delete or bin  those
-- 
-[duration_banded_one_way](./assets/freq_duration_banded_one_way.png)
+- duration 365 has a high frequency compared to non-annual policies
+<img src="./assets/freq_duration_banded_one_way.png">
 
 ## Feature engineering
 - one hot encoding for categorical
