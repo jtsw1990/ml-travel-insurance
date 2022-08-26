@@ -2,7 +2,7 @@
 
 # ml-travel-insurance
 
-Fun project to model propensity to claim as a classifcation problem, and serve as a template for a more robust personal ML development framework, and of course to try out new shit.
+Fun project to model propensity to claim as a classifcation problem, and serve as a template for a more robust personal ML development framework, and of course to try out new cool tools.
 
 Data is originally from [Kaggle](https://www.kaggle.com/datasets/mhdzahier/travel-insurance). While the features are simple and the claims response is pretty straightforward, strangely many enthusiasts seem to use sales premium and commission dollars as a feature to predict claim lodgement.
 
@@ -38,16 +38,14 @@ Data preprocessing required for some of the erronous entries. Note that professi
 
 ## **Data analysis**
 - 58525 data points after cleaning, 914 claim and ~1.5% claim frequency
-- highly imbalanced dataset
-
+- severly imbalanced dataset requies over/under sampling techniques. SMOTE used here
 - Age seems to have a slight downward effect on claim frequency
 - Strange peak of exposure at 36 years
-<img src="./assets/freq_age_one_way.png">
 
-- duration has a few unrealistic values upwards of 10 years, to either delete or bin  those
-- duration 365 has a high frequency compared to non-annual policies
-<img src="./assets/freq_duration_banded_one_way.png">
+<img src="./assets/freq_age_one_way.png" width="400" height="200" ><img src="./assets/freq_duration_banded_one_way.png" width="400" height="200">
 
+- duration has a few unrealistic values upwards of 10 years, these have been removed and capped at 547 given the drop off in exposure for anything past
+- duration 365 has a claims high frequency compared to non-annual policies
 - destination has high cardinality ~top 20 countries capture ~90% of all data points and claims
 
 <p align="right">(<a href="#top">back to top</a>)</p>
