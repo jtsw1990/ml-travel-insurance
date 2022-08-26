@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 # ml-travel-insurance
 
 Fun project to model propensity to claim as a classifcation problem, and serve as a template for a more robust personal ML development framework, and of course to try out new shit.
@@ -6,13 +8,23 @@ Data is originally from [Kaggle](https://www.kaggle.com/datasets/mhdzahier/trave
 
 While it is understood that this is a contrived example, it leads to a somewhat unrealistic and circular logic, given the commissions are based on premiums which are in turned based on the risk of a particular profile. So, using premiums to predict claims which are then used again to predict premiums isn't a very reliable strategy in the real world.
 
+## **Table of Contents**
+- [Solution architecture](#)
+- [Data quality](#)
+- [Data analysis](#)
+- [Model results](#)
+- [Local developlemt](#)
+- [Folder structure](#)
 
-## Preprocessing
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## **Preprocessing**
 - removing non positive premiums
 - remove ages > 100
 - remove duration > 547
 
-## Exploratory data analysis
+## **Exploratory data analysis**
 - 58525 data points after cleaning, 914 claim and ~1.5% claim frequency
 - highly imbalanced dataset
 
@@ -27,5 +39,5 @@ While it is understood that this is a contrived example, it leads to a somewhat 
 
 - destination has high cardinality ~top 20 countries capture ~90% of all data points and claims
 
-## Feature engineering
+## **Feature engineering**
 - one hot encoding for categorical
