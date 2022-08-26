@@ -1,5 +1,10 @@
 # ml-travel-insurance
-fun e2e machine learning project to modeling propensity to claim
+
+Fun project to model propensity to claim as a classifcation problem, and serve as a template for a more robust personal ML development framework, and of course to try out new shit.
+
+Data is originally from [Kaggle](https://www.kaggle.com/datasets/mhdzahier/travel-insurance). While the features are simple and the claims response is pretty straightforward, strangely many enthusiasts seem to use sales premium and commission dollars as a feature to predict claim lodgement.
+
+While it is understood that this is a contrived example, it leads to a somewhat unrealistic and circular logic, given the commissions are based on premiums which are in turned based on the risk of a particular profile. So, using premiums to predict claims which are then used again to predict premiums isn't a very reliable strategy in the real world.
 
 
 ## Preprocessing

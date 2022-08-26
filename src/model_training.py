@@ -2,12 +2,16 @@ import pandas as pd
 import lightgbm as lgb
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
+from imblearn.over_sampling import SMOTE
 from modules.data_reader import read_data
 from modules.feature_transformer import bin_destination, bin_product, one_hot_encode
 from modules.data_wrangler import remove_non_positive_premiums, remove_outlier_ages, remove_outlier_duration
 from modules.product_map import product_mapping
 
 def main():
+
+    # Define constants
+    seed = 123
 
     # Read in data
     df = read_data()
@@ -35,11 +39,18 @@ def main():
     x = df_encoded.drop('Claim', axis=1)
     y = df_encoded['Claim']
 
+
+    # perform oversampling
+    sm = SMOTE(random_state=123)
+    x_smote, y_smote = sm.fit_resample(x, y)
+
+
     # Train test split
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=123)
+    x_train, x_test, y_train, y_test = train_test_split(x_smote, y_smote, test_size=0.2, random_state=seed)
+
 
     # Model training
-    model = lgb.LGBMClassifier(learning_rate=0.05, max_depth=-5, random_state=123)
+    model = lgb.LGBMClassifier(learning_rate=0.05, max_depth=-5, random_state=seed)
     model.fit(x_train, y_train, eval_set=[(x_test, y_test), (x_train, y_train)], eval_metric='logloss')
 
     print('Training accuracy {:.4f}'.format(model.score(x_train, y_train)))
