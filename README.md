@@ -19,7 +19,7 @@ While it is understood that this is a contrived example, it leads to a somewhat 
 
 ## **Solution architecture**
 
-[!ml_pipeline](/assets/ml_pipeline.svg)
+<img src="/assets/ml_pipeline.svg">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
