@@ -9,13 +9,17 @@ Data is originally from [Kaggle](https://www.kaggle.com/datasets/mhdzahier/trave
 While it is understood that this is a contrived example, it leads to a somewhat unrealistic and circular logic, given the commissions are based on premiums which are in turned based on the risk of a particular profile. So, using premiums to predict claims which are then used again to predict premiums isn't a very reliable strategy in the real world.
 
 ## **Table of Contents**
-- [Solution architecture](#)
+- [ML architecture](ml-architecture)
 - [Data quality](#)
 - [Data analysis](#)
 - [Model results](#)
 - [Local developlemt](#)
 - [Folder structure](#)
 
+
+## **Solution architecture**
+
+[!ml_pipeline](/assets/ml_pipeline.svg)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
