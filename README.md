@@ -10,25 +10,33 @@ While it is understood that this is a contrived example, it leads to a somewhat 
 
 ## **Table of Contents**
 - [ML architecture](ml-architecture)
-- [Data quality](#)
-- [Data analysis](#)
-- [Model results](#)
-- [Local developlemt](#)
-- [Folder structure](#)
+- [Data quality](data-quality)
+- [Data analysis](data-analysis)
+- [Model results](model-results)
+- [Local developlemt](local-development)
+- [Folder structure](folder-structure)
 
 
-## **Solution architecture**
+## **ML architecture**
 
-<img src="/assets/ml_pipeline.svg">
+Local development architecture abstracts whole pipeline into 3 main pipeline components.
+
+<img src="/assets/ml_pipeline.png">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## **Preprocessing**
+## **Data quality**
+
+Data preprocessing required for some of the erronous entries. Note that professional judgement was required for some of the decisions below.
+
 - removing non positive premiums
 - remove ages > 100
 - remove duration > 547
+- removed gender as a feature due to significant prportion of missing values
 
-## **Exploratory data analysis**
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## **Data analysis**
 - 58525 data points after cleaning, 914 claim and ~1.5% claim frequency
 - highly imbalanced dataset
 
@@ -40,8 +48,19 @@ While it is understood that this is a contrived example, it leads to a somewhat 
 - duration 365 has a high frequency compared to non-annual policies
 <img src="./assets/freq_duration_banded_one_way.png">
 
-
 - destination has high cardinality ~top 20 countries capture ~90% of all data points and claims
 
-## **Feature engineering**
-- one hot encoding for categorical
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## **Model results**
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## **Local development**
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## **Folder structure**
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
