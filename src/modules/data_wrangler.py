@@ -13,7 +13,7 @@ def remove_non_positive_premiums(df: pd.DataFrame) -> pd.DataFrame:
 
 def remove_outlier_ages(df: pd.DataFrame, max_threshold: int) -> pd.DataFrame:
     ''' remove entries with ages > 100 '''
-    
+
     dataf = df.loc[df['Age'] <= max_threshold, :].reset_index(drop=True)
 
     return dataf
