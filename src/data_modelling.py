@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def data_modelling_pipeline(df: pd.DataFrame) -> tuple:
+def data_modelling_pipeline(df: pd.DataFrame, inference: bool = False) -> tuple:
 
     seed = 123
 
@@ -36,11 +36,14 @@ def data_modelling_pipeline(df: pd.DataFrame) -> tuple:
     x = df_encoded.drop('Claim', axis=1)
     y = df_encoded['Claim']
 
-    # perform oversampling
-    sm = SMOTE(random_state=123)
-    x_smote, y_smote = sm.fit_resample(x, y)
+    if not inference:
+        # perform oversampling
+        sm = SMOTE(random_state=123)
+        x_smote, y_smote = sm.fit_resample(x, y)
 
-    # Train test split
-    x_train, x_test, y_train, y_test = train_test_split(x_smote, y_smote, test_size=0.2, random_state=seed)
+        # Train test split
+        x_train, x_test, y_train, y_test = train_test_split(x_smote, y_smote, test_size=0.2, random_state=seed)
 
-    return(x_train, x_test, y_train, y_test)
+        return(x_train, x_test, y_train, y_test)
+    else:
+        return(x, y)
